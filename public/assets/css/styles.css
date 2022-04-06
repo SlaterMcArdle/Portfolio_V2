@@ -1,0 +1,235 @@
+/* Assign CSS variables to help eliminate repeat sata entry */
+:root {
+    --brand-keppel: #74a9ff;
+    --brand-gunmetal: #2E3047;
+    --brand-outer-space: #43455C;
+    --brand-arsenic: #3C3F58;
+    --brand-rhythm: #60667c;
+    --navbar-height: 3rem;
+    --navbar-height-mini: 4.5rem;
+    --transition-time: 1.2s;
+}
+/* Assign universal attributes to the document */
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--brand-keppel);
+}
+/* Set the base background color for the entire page */
+body {
+    background-color: var(--brand-gunmetal);
+    padding: 0px;
+    width: 100pw;
+}
+/* Set a baseline for links */
+a {
+    text-decoration-line: none;
+    font-size: 1.5rem;
+    color: var(--brand-keppel);
+}
+/* center up the section headers and give them appropriate spacing */
+h2 {
+    text-align: center;
+    margin-bottom: 0.1rem;
+}
+/* style the themati breaks to the same color as the rest of the outstanding text and force horizontal in a flexbox environment */
+hr {
+    width: 100%;
+    background-color: var(--brand-keppel);
+    border-color: var(--brand-keppel);
+}
+/* Fix the navbar to the top of the page during scroll and style */
+/* nav {
+    position: fixed;
+    z-index: 1000;  
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--brand-arsenic);
+} */
+/* force the header left and apply approprate styles and spacing */
+/* nav > header {
+    float: left;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+} */
+/* force the nav links right (for larger displays */
+/* nav > ul {
+    float: right;
+    margin-right: 0.5rem;
+} */
+/* style and space the navbar links */
+/* nav > ul > li {
+    display: inline-block;
+    justify-content: right;
+    margin: 0.5rem;
+}    */
+/* Add some whitespace to the sides of the main section */
+main {
+    margin:0 1rem;
+}
+.navbar-spreader {
+    height: calc(var(--navbar-height) + 0.3rem);
+}
+
+.carousel-item {
+    background-color: #777;
+  }
+
+.carousel-caption, .carousel-indicators {
+    background-color: rgba(0,0,0,0.6);
+    left: 0% !important;
+    width: 100%;
+    margin-bottom: 0%;
+    margin-left: 0%;
+    z-index: 10;
+}
+
+.carousel-control{
+    z-index:15 !important;
+}
+
+#about-me-section{
+    background-color: var(--brand-arsenic)!important;
+}
+/* make the paragraph more blocklike */
+#about-me-text-container > p {
+    text-align: justify;
+}
+
+/* Customize the portfolio project container to flex */
+#portfolio-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+/* Make the first project bigger than the rest */
+#first {
+    flex-basis: 90%;
+}
+/* set the rest of the cards to a standard, 2 column size with plenty of spacing */
+.portfolio-project {
+    flex-basis: 40%;
+    background-color: var(--brand-arsenic);
+    position: relative;
+    margin: 5%;
+}
+/* Make the entire portfolio project section a clickable link */
+.portfolio-project > a {
+   position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+}
+/* Ensure the project image remains inside the flexible div */
+.portfolio-project img {
+    width: 100%;
+    object-fit: contain;
+}
+/* Set styles shared between portfolio object header and footer in one spot */
+.portfolio-project > header , .portfolio-project > footer {
+    position: absolute;
+    background-color: var(--brand-rhythm);
+    z-index: 100;
+    opacity: 0%;
+    font-size: 1.2em;
+    width: 98%;
+    height: 2rem;
+    padding: 0 1%;
+    visibility: hidden;
+    transition: visibility var(--transition-time), opacity var(--transition-time);
+}
+/* Set properties custom to portfolio object footer */
+.portfolio-project > footer {
+    bottom: 0;
+}
+/* Set a baseline opacity and transition rate for the background image container div */
+.portfolio-project > div {
+    opacity: 100%;
+    transition: opacity var(--transition-time);
+}
+/* Add some cool property changes when the user hovers over a peoject */
+.portfolio-project:hover > div {
+    opacity: 60%;
+}
+.portfolio-project:hover > header, .portfolio-project:hover > footer {
+    opacity: 90%;
+    visibility: visible;
+}
+/* Ensure the portfolio header takes up its entire row */
+#portfolio-section > h2 {
+    flex-basis: 100%;
+}
+/* Adjust the size of the image-icons in the contact links */
+#contact-section img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.contact-btn {
+    background-color: var(--brand-arsenic);
+}
+/* set up the contact section link list as a flexbox */
+/* #contact-section > ul {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}*/
+/* Position and style the contact section links with flexbox */
+/* #contact-section > ul > li {
+    list-style-type: none;
+    background-color: var(--brand-outer-space);
+    border-radius: 5px;
+    flex-basis: 31%;
+    margin: 1%;
+    text-align: center;
+}  */
+
+footer {
+    padding-left: 1em;
+}
+/* Restyle footer link font size to match surrounding text */
+footer a {
+    font-size: 1em;
+}
+/* Below a certain screen size, adjust for small displays */
+@media screen and (max-width: 730px) {
+    /* Set all of the portfolio projects in one column, and make them larger */
+    .portfolio-project {
+        flex-basis: 60%;
+    }
+    /* Make the about me image and paragraph aligned vertically and centered */
+    #about-me-section {
+        justify-content: center;
+    }
+    /* #about-me-image-container {
+        flex-basis: 70%;
+    } */
+    #about-me-text-container {
+        flex-basis: 70%;
+        margin: 1% 0;
+    }
+    #contact-section > ul > li {
+        flex-basis: 90%;
+    }
+}
+/* Adjust the navbar for extra small displays. */
+@media screen and (max-width: 570px) {
+   /* make it taller to accomodate the two rows */
+    nav {
+        height: var(--navbar-height-mini);
+    }
+    /* make the header and link list into two rows */
+    nav > header {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    nav > ul {
+        width: 100%;
+        text-align: center;
+    }
+    /* adjust the container padding to stay out from under the taller navbar on link clicks. */
+    .container-section {
+        padding-top: var(--navbar-height-mini);
+    }
+}
